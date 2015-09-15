@@ -42,11 +42,12 @@ void Game::Initialize()
 	wiInputManager::addXInput(new wiXInput());
 }
 
-void Game::Render()
+void Game::Compose()
 {
-	MainComponent::Render();
-
 	static wiFont text = wiFont(string("Wicked Engine ") + string(WICKED_ENGINE_VERSION)
-		, wiFontProps(0, 0, -3, WIFALIGN_LEFT, WIFALIGN_TOP, -2));
+		, wiFontProps(0, 0, -7, WIFALIGN_LEFT, WIFALIGN_TOP, -7));
 	text.Draw();
+
+	MainComponent::Compose();
+
 }
