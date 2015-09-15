@@ -36,4 +36,17 @@ void Game::Initialize()
 	wiRenderer::SOFTSHADOW = 2;
 	wiRenderer::DX11 = false;
 	wiRenderer::physicsEngine = new wiBULLET();
+
+
+	wiFont::addFontStyle("basic");
+	wiInputManager::addXInput(new wiXInput());
+}
+
+void Game::Render()
+{
+	MainComponent::Render();
+
+	static wiFont text = wiFont(string("Wicked Engine ") + string(WICKED_ENGINE_VERSION)
+		, wiFontProps(0, 0, -3, WIFALIGN_LEFT, WIFALIGN_TOP, -2));
+	text.Draw();
 }
