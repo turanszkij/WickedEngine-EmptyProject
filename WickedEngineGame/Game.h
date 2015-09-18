@@ -8,6 +8,5 @@ public:
 	~Game();
 
 	void Initialize();
-	void Compose();
 };
 

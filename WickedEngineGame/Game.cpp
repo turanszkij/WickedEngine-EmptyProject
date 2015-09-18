@@ -18,6 +18,11 @@ void Game::Initialize()
 
 	MainComponent::Initialize();
 
+	infoDisplay.active = true;
+	infoDisplay.watermark = true;
+	infoDisplay.fpsinfo = false;
+	infoDisplay.cpuinfo = false;
+
 	wiInitializer::InitializeComponents(
 		wiInitializer::WICKEDENGINE_INITIALIZE_RENDERER
 		| wiInitializer::WICKEDENGINE_INITIALIZE_IMAGE
@@ -42,12 +47,3 @@ void Game::Initialize()
 	wiInputManager::addXInput(new wiXInput());
 }
 
-void Game::Compose()
-{
-	static wiFont text = wiFont(string("Wicked Engine ") + string(WICKED_ENGINE_VERSION)
-		, wiFontProps(0, 0, -7, WIFALIGN_LEFT, WIFALIGN_TOP, -7));
-	text.Draw();
-
-	MainComponent::Compose();
-
-}
