@@ -35,10 +35,9 @@ void Game::Initialize()
 	wiRenderer::EMITTERSENABLED = true;
 	wiRenderer::HAIRPARTICLEENABLED = true;
 	wiRenderer::setRenderResolution(wiRenderer::GetScreenWidth(), wiRenderer::GetScreenHeight());
-	wiRenderer::SHADOWMAPRES = 1024;
-	wiRenderer::POINTLIGHTSHADOW = 6;
-	wiRenderer::POINTLIGHTSHADOWRES = 512;
-	wiRenderer::SOFTSHADOW = 2;
+	wiRenderer::SetDirectionalLightShadowProps(1024, 2);
+	wiRenderer::SetPointLightShadowProps(3, 512);
+	wiRenderer::SetSpotLightShadowProps(3, 512);
 	wiRenderer::DX11 = false;
 	wiRenderer::physicsEngine = new wiBULLET();
 
