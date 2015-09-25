@@ -171,6 +171,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			if (wiBackLog::isActive())
 				wiBackLog::historyNext();
 			break;
+		case VK_NEXT:
+			if (wiBackLog::isActive())
+				wiBackLog::Scroll(10);
+			break;
+		case VK_PRIOR:
+			if (wiBackLog::isActive())
+				wiBackLog::Scroll(-10);
+			break;
 		default:
 			break;
 		}
