@@ -17,6 +17,13 @@ WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
 WCHAR szWindowClass[MAX_LOADSTRING];            // the main window class name
 Game game;
 
+
+enum Hotkeys
+{
+	UNUSED = 0,
+	PRINTSCREEN = 1,
+};
+
 // Forward declarations of functions included in this code module:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
@@ -123,6 +130,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
+   RegisterHotKey(hWnd, PRINTSCREEN, 0, VK_SNAPSHOT);
+
    return TRUE;
 }
 
@@ -178,6 +187,18 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		case VK_PRIOR:
 			if (wiBackLog::isActive())
 				wiBackLog::Scroll(-10);
+			break;
+		default:
+			break;
+		}
+		break;
+	case WM_HOTKEY:
+		switch (wParam)
+		{
+		case PRINTSCREEN:
+			{
+				wiHelper::screenshot();
+			}
 			break;
 		default:
 			break;
