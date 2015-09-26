@@ -115,8 +115,25 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // Store instance handle in our global variable
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+   int x = CW_USEDEFAULT, y = 0, w = CW_USEDEFAULT, h = 0;
+   string voidStr = "";
+
+   ifstream file("config.ini");
+   if (file.is_open())
+   {
+	   int enabled;
+	   file >> voidStr >> enabled;
+	   if (enabled != 0)
+	   {
+		   file >> voidStr >> x >> voidStr >> y >> voidStr >> w >> voidStr >> h >> voidStr >> game.fullscreen;
+		   game.screenW = w;
+		   game.screenH = h;
+	   }
+   }
+   file.close();
+
+   HWND hWnd = CreateWindow(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+	   x, y, w, h, NULL, NULL, hInstance, NULL);
 
    if (!hWnd)
    {
