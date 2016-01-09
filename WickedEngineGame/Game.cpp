@@ -34,7 +34,6 @@ void Game::Initialize()
 	wiRenderer::VSYNC = false;
 	wiRenderer::EMITTERSENABLED = true;
 	wiRenderer::HAIRPARTICLEENABLED = true;
-	wiRenderer::setRenderResolution(wiRenderer::GetScreenWidth(), wiRenderer::GetScreenHeight());
 	wiRenderer::SetDirectionalLightShadowProps(1024, 2);
 	wiRenderer::SetPointLightShadowProps(3, 512);
 	wiRenderer::SetSpotLightShadowProps(3, 512);
