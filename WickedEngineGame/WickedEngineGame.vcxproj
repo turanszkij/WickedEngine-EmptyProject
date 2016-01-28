@@ -173,6 +173,11 @@
     <Image Include="small.ico" />
     <Image Include="WickedEngineGame.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WickedEngine\WickedEngine\WickedEngine.vcxproj">
+      <Project>{a94a5b28-b5b0-4386-8281-8ae3c6984762}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
