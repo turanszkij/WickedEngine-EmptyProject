@@ -31,13 +31,12 @@ void Game::Initialize()
 		| wiInitializer::WICKEDENGINE_INITIALIZE_MISC
 		);
 
-	wiRenderer::VSYNC = false;
+	wiRenderer::GetDevice()->SetVSyncEnabled(false);
 	wiRenderer::EMITTERSENABLED = true;
 	wiRenderer::HAIRPARTICLEENABLED = true;
 	wiRenderer::SetDirectionalLightShadowProps(1024, 2);
 	wiRenderer::SetPointLightShadowProps(3, 512);
 	wiRenderer::SetSpotLightShadowProps(3, 512);
-	wiRenderer::DX11 = false;
 	wiRenderer::physicsEngine = new wiBULLET();
 
 
