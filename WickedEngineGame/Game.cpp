@@ -34,13 +34,6 @@ void Game::Initialize()
 	wiRenderer::GetDevice()->SetVSyncEnabled(false);
 	wiRenderer::EMITTERSENABLED = true;
 	wiRenderer::HAIRPARTICLEENABLED = true;
-	wiRenderer::SetDirectionalLightShadowProps(1024, 2);
-	wiRenderer::SetPointLightShadowProps(3, 512);
-	wiRenderer::SetSpotLightShadowProps(3, 512);
 	wiRenderer::physicsEngine = new wiBULLET();
-
-
-	wiFont::addFontStyle("basic");
-	wiInputManager::addXInput(new wiXInput());
 }
 
